@@ -1,15 +1,15 @@
 ---
-- name: "WordPress Server: Install LEMP Stack with PHP 5.5 and MariaDB MySQL"
+- name: "WordPress Server: Install Nginx and PHP 5.5"
   hosts: web
   remote_user: root
   # sudo: yes
 
   roles:
     - common
-    - mariadb
+    - { role: mariadb, when "'development' in group_names" }
     - php-55
     - nginx
-    - { role: memcached, when: "'development' not in group_names" }
+    - git
     - composer
     - { role: dev-tools, when: "'development' not in group_names" }
     - wp-cli

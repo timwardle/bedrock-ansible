@@ -7,7 +7,7 @@
 - name: Enable WordPress site
   file: src="/etc/nginx/sites-available/{{ item.site_name }}.conf"
         dest="/etc/nginx/sites-enabled/{{ item.site_name }}.conf"
-        owner=deploy
+        owner=www-data
         group=www-data
         state=link
   with_items: wordpress_sites

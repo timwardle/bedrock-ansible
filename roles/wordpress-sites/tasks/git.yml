@@ -1,0 +1,8 @@
+---
+- name: Clone repository
+  sudo: no
+  git: repo="{{ item.repository_url }}"
+        dest="{{ www_root }}/{{ item.site_name }}/current"
+        accept_hostkey=yes
+  with_items: wordpress_sites
+  when: item.repository_url|default(False) != False

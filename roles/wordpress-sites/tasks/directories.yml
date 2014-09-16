@@ -1,12 +1,4 @@
 ---
-- name: Create web root of sites
-  file: path="{{ www_root }}/{{ item.site_name }}/current/web"
-        owner="{{ item.user | default(user) }}"
-        group=www-data
-        mode=0755
-        state=directory
-  with_items: wordpress_sites
-
 - name: Create shared folder of sites
   file: path="{{ www_root }}/{{ item.site_name }}/shared"
         owner="{{ item.user | default(user) }}"

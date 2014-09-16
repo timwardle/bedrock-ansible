@@ -2,6 +2,7 @@
 - include: database.yml
 - include: nginx.yml
 - include: directories.yml
+- include: git.yml
 
 - name: Create .env file of sites
   dotenv: path="{{ www_root }}/{{ item.site_name }}/shared/.env"

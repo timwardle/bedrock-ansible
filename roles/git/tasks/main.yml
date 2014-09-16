@@ -1,0 +1,8 @@
+---
+- name: Install Git
+  apt: name="git-core" state=present force=yes
+
+- name: Copy known hosts
+  copy: src=known_hosts
+        dest=~/.ssh/known_hosts
+        mode=0600
